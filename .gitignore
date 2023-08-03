@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#########for react demo expense-tracker####
+# dependencies
+/expense-tracker-demo/node_modules
+/expense-tracker-demo/.pnp
+/expense-tracker-demo.pnp.js
+
+# testing
+/expense-tracker-demo/coverage
+
+# production
+/expense-tracker-demo/build
+
+# misc
+/expense-tracker-demo.DS_Store
+/expense-tracker-demo.env.local
+/expense-tracker-demo.env.development.local
+/expense-tracker-demo.env.test.local
+/expense-tracker-demo.env.production.local
+
+/expense-tracker-demonpm-debug.log*
+/expense-tracker-demoyarn-debug.log*
+/expense-tracker-demoyarn-error.log*
