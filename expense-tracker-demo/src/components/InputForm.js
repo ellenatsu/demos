@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 
-export const InputForm = () => {
-  const [selectCategory, setSelectCategory] = useState("grocery");
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-  };
-
-  const resetHandler = () => {};
-
-  const inputChangeHandler = (input, value) => {};
-  const categoryChangeHandler = (event) => {
-    setSelectCategory(event.target.value);
-  };
-
+export const InputForm = (props) => {
   const [formData, setFormData] = useState({
     date: "",
-    text: "",
+    payee: "",
     amount: "",
+    category: "",
   });
 
   // Event handler for input elements
@@ -28,6 +16,11 @@ export const InputForm = () => {
       [name]: value,
     });
   };
+  const submitHandler = (event) => {
+    event.preventDefault();
+  };
+
+  const resetHandler = () => {};
 
   // Get the current date in the format YYYY-MM-DD
   const currentDate = new Date().toISOString().slice(0, 10);
@@ -41,18 +34,18 @@ export const InputForm = () => {
         <p>
           <label htmlFor="date">Date</label>
           <input
-            onChange={handleInputChange}
             type="date"
             id="date"
             value={formData.date}
+            onChange={handleInputChange}
           />
         </p>
         <p>
           <label htmlFor="category">Category</label>
           <select
             id="category"
-            value={selectCategory}
-            onChange={categoryChangeHandler}
+            value={formData.category}
+            onChange={handleInputChange}
           >
             <option value="grocery">Grocery</option>
             <option value="food">Food</option>
@@ -63,7 +56,11 @@ export const InputForm = () => {
       <div className="input-group">
         <p>
           <label htmlFor="payee">Payee</label>
-          <select id="payee">
+          <select
+            id="payee"
+            value={formData.payee}
+            onChange={handleInputChange}
+          >
             <option value="t" selected>
               Thor
             </option>
