@@ -4,7 +4,6 @@ import React from "react";
 export const Header = () => {
   return (
     <header className="header">
-      <img src={logo} alt="logo" />
       <h1>Budget Tracker</h1>
     </header>
   );
