@@ -11,7 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #242a28; */
   background: radial-gradient(#260d70, #054a98);
-  color: #182186;
+  color: #a5ba50;
 }
 
 .header {
@@ -90,7 +90,7 @@ select {
 }
 
 button:hover {
-  background: linear-gradient(180deg, #1b5346, #113c32);
+  background: linear-gradient(180deg, #5998db, #2d2061);
 }
 
 .buttonAlt:hover {

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TotalTable } from "./components/TotalTable";
 import { DetailTable } from "./components/DetailTable";
 import { InputForm } from "./components/InputForm";
 import { Header } from "./components/Header";
+import { LoginPopup } from "./components/LoginPopup";
+
+import { firebaseApp, firebaseAuth } from "./firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 export const App = () => {
   const initalFormData = {
@@ -29,6 +33,41 @@ export const App = () => {
   //for total amount table full rows
   const [monthlyData, setMonthlydata] = useState([initalMonthData]);
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+        console.log("user not log in");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = () => {
+    signOut(firebaseAuth)
+      .then(() => {
+        // Sign-out successful.
+        console.log("sign out.");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   const submitHandler = (userInput) => {
     setDetailData([...detailData, userInput]);
 
@@ -41,11 +80,6 @@ export const App = () => {
     const selectedPayee = userInput["payee"];
     const selectedCategory = userInput["category"];
     const date = userInput["date"];
-
-    //get month number
-    const month = getMonthFromInput(date);
-    //first, judge the month, every month is a new item.
-
     setBudgetData((prevData) => ({
       budget: prevData.budget - amount,
       grocery:
@@ -66,15 +100,19 @@ export const App = () => {
     //setMonthlyData([...budgetData, newItem]);
   };
 
-  const getMonthFromInput = (inputDate) => {
-    const dateObject = new Date(inputDate);
-    const month = dateObject.getMonth();
-    return month;
-  };
-
   return (
     <div>
       <Header />
+      {user ? (
+        <div>
+          <p>Current User: {user.email}</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <button onClick={handleOpenPopup}>Open Login</button>
+      )}
+      {isPopupOpen && <LoginPopup onClose={handleClosePopup} />}
+
       <InputForm onSubmit={submitHandler} />
       <TotalTable data={budgetData} />
       <DetailTable data={detailData} />

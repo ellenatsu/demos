@@ -16,12 +16,12 @@ export const InputForm = (props) => {
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     props.onSubmit(formData);
+    //add to firestore collection
   };
 
   const resetHandler = () => {
