@@ -114,7 +114,7 @@ export const App = () => {
       {isPopupOpen && <LoginPopup onClose={handleClosePopup} />}
 
       <InputForm onSubmit={submitHandler} />
-      <TotalTable data={budgetData} />
+      <TotalTable />
       <DetailTable data={detailData} />
     </div>
   );

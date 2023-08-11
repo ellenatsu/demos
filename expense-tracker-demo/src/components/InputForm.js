@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { firebaseDb } from "../firebase";
 
 export const InputForm = (props) => {
   const initalFormData = {
@@ -22,10 +24,23 @@ export const InputForm = (props) => {
     event.preventDefault();
     props.onSubmit(formData);
     //add to firestore collection
+    addToFirestore();
   };
 
   const resetHandler = () => {
     setFormData(initalFormData);
+  };
+
+  const addToFirestore = async () => {
+    try {
+      const docRef = await addDoc(
+        collection(firebaseDb, "budget-detail"),
+        formData
+      );
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
   // Set the default value of the date input to the current date
