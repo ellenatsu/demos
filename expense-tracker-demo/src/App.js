@@ -5,8 +5,9 @@ import { InputForm } from "./components/InputForm";
 import { Header } from "./components/Header";
 import { LoginPopup } from "./components/LoginPopup";
 
-import { firebaseApp, firebaseAuth } from "./firebase";
+import { firebaseApp, firebaseAuth, firebaseDb } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { collection, updateDoc, doc } from "firebase/firestore";
 
 export const App = () => {
   const initalFormData = {
@@ -30,11 +31,10 @@ export const App = () => {
 
   //for total amount table one month row
   const [budgetData, setBudgetData] = useState(initalMonthData);
-  //for total amount table full rows
-  const [monthlyData, setMonthlydata] = useState([initalMonthData]);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  //log in status
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -69,8 +69,9 @@ export const App = () => {
   };
 
   const submitHandler = (userInput) => {
-    setDetailData([...detailData, userInput]);
-
+    //add new data to budget-detail already done in the input form
+    //setDetailData([...detailData, userInput]);
+    //revise the budget-summary data
     calculateAmount(userInput);
   };
 
@@ -79,8 +80,10 @@ export const App = () => {
     const amount = +userInput["amount"];
     const selectedPayee = userInput["payee"];
     const selectedCategory = userInput["category"];
-    const date = userInput["date"];
-    setBudgetData((prevData) => ({
+    const date = transformDate(userInput["date"]);
+    //get the data frist
+
+    const updatedFields = {
       budget: prevData.budget - amount,
       grocery:
         selectedCategory === "grocery"
@@ -93,11 +96,29 @@ export const App = () => {
           ? prevData.activity + amount
           : prevData.activity,
       pet: selectedCategory === "pet" ? prevData.pet + amount : prevData.pet,
-      t: selectedPayee === "t" ? prevData.t + amount : prevData.t,
-      e: selectedPayee === "e" ? prevData.e + amount : prevData.e,
-    }));
-    //const newItem = {};
-    //setMonthlyData([...budgetData, newItem]);
+      th: selectedPayee === "t" ? prevData.t + amount : prevData.t,
+      el: selectedPayee === "e" ? prevData.e + amount : prevData.e,
+    };
+    reviseData(date, updatedFields);
+  };
+
+  const reviseData = async (date, updatedFields) => {
+    const documentRef = doc(firebaseDb, "budget-summary", date);
+    try {
+      await updateDoc(documentRef, updatedFields);
+      console.log(date + "Document successfully updated!");
+    } catch (error) {
+      console.error("Error updating document:", error);
+    }
+  };
+
+  const transformDate = (inputDateValue) => {
+    const parsedDate = new Date(inputDateValue);
+    const year = parsedDate.getFullYear();
+    const month = parsedDate.getMonth() + 1; // Months are zero-based
+    const formattedDate = `${year}${month.toString().padStart(2, "0")}`;
+
+    return formattedDate; // Output: "202308"
   };
 
   return (
