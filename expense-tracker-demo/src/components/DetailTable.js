@@ -62,7 +62,7 @@ export const DetailTable = () => {
       ) : (
         <tbody>
           <tr>
-            <td colSpan="4">No data available</td>
+            <td>No data available</td>
           </tr>
         </tbody>
       )}

@@ -4,34 +4,12 @@ import { DetailTable } from "./components/DetailTable";
 import { InputForm } from "./components/InputForm";
 import { Header } from "./components/Header";
 import { LoginPopup } from "./components/LoginPopup";
+import { useMonthlyData } from "./hooks";
 
 import { firebaseApp, firebaseAuth, firebaseDb } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, updateDoc, doc } from "firebase/firestore";
 
 export const App = () => {
-  const initalFormData = {
-    date: "",
-    payee: "",
-    amount: "",
-    category: "",
-  };
-
-  const initalMonthData = {
-    budget: 1800.0,
-    grocery: 0.0,
-    food: 0.0,
-    activity: 0.0,
-    pet: 0.0,
-    t: 0.0,
-    e: 0.0,
-  };
-  //for detail table
-  const [detailData, setDetailData] = useState([initalFormData]);
-
-  //for total amount table one month row
-  const [budgetData, setBudgetData] = useState(initalMonthData);
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   //log in status
@@ -68,48 +46,26 @@ export const App = () => {
     setIsPopupOpen(false);
   };
 
+  const { monthData, updateMonthlyData } = useMonthlyData("202308");
+
   const submitHandler = (userInput) => {
     //add new data to budget-detail already done in the input form
-    //setDetailData([...detailData, userInput]);
     //revise the budget-summary data
-    calculateAmount(userInput);
-  };
-
-  const calculateAmount = (userInput) => {
-    //calculate the data
-    const amount = +userInput["amount"];
+    const amount = +userInput["amount"]; //turns to numbers
     const selectedPayee = userInput["payee"];
     const selectedCategory = userInput["category"];
     const date = transformDate(userInput["date"]);
-    //get the data frist
 
     const updatedFields = {
-      budget: prevData.budget - amount,
-      grocery:
-        selectedCategory === "grocery"
-          ? prevData.grocery + amount
-          : prevData.grocery,
-      food:
-        selectedCategory === "food" ? prevData.food + amount : prevData.food,
-      activity:
-        selectedCategory === "activity"
-          ? prevData.activity + amount
-          : prevData.activity,
-      pet: selectedCategory === "pet" ? prevData.pet + amount : prevData.pet,
-      th: selectedPayee === "t" ? prevData.t + amount : prevData.t,
-      el: selectedPayee === "e" ? prevData.e + amount : prevData.e,
+      budget: amount,
+      grocery: selectedCategory === "grocery" ? amount : 0,
+      food: selectedCategory === "food" ? amount : 0,
+      activity: selectedCategory === "activity" ? amount : 0,
+      pet: selectedCategory === "pet" ? amount : 0,
+      th: selectedPayee === "t" ? amount : 0,
+      el: selectedPayee === "e" ? amount : 0,
     };
-    reviseData(date, updatedFields);
-  };
-
-  const reviseData = async (date, updatedFields) => {
-    const documentRef = doc(firebaseDb, "budget-summary", date);
-    try {
-      await updateDoc(documentRef, updatedFields);
-      console.log(date + "Document successfully updated!");
-    } catch (error) {
-      console.error("Error updating document:", error);
-    }
+    updateMonthlyData(date, updatedFields);
   };
 
   const transformDate = (inputDateValue) => {
@@ -136,7 +92,7 @@ export const App = () => {
 
       <InputForm onSubmit={submitHandler} />
       <TotalTable />
-      <DetailTable data={detailData} />
+      <DetailTable />
     </div>
   );
 };

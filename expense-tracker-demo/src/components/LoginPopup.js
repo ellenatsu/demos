@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { firebaseApp, firebaseAuth } from "../firebase";
+import { firebaseAuth } from "../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -9,7 +9,6 @@ import "./LoginPopup.css"; // Apply your styles here
 export const LoginPopup = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -19,8 +18,6 @@ export const LoginPopup = ({ onClose }) => {
         onClose();
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         console.log(error.message);
       });
   };
@@ -33,8 +30,6 @@ export const LoginPopup = ({ onClose }) => {
         onClose();
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         console.log(error.message);
       });
   };
