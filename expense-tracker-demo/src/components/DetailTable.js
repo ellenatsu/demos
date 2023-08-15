@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  where,
+  limit,
+} from "firebase/firestore";
 import { firebaseDb } from "../firebase";
 
 //display data from firebase database
@@ -10,24 +16,28 @@ export const DetailTable = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const querySnapshot = await getDocs(
-          collection(firebaseDb, "budget-detail")
-        );
-        const newData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setData(newData);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    try {
+      const q = query(
+        collection(firebaseDb, "budget-detail"),
+        where("amount", "!=", "0"),
+        limit(20)
+      );
 
-    fetchData();
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        setData(
+          querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+        );
+      });
+
+      return () => unsubscribe();
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   if (loading) {
