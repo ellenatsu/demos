@@ -10,14 +10,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #242a28; */
-  background: radial-gradient(#260d70, #054a98);
-  color: #a5ba50;
 }
 
 .header {
   text-align: center;
   margin: 3rem auto;
-  color: #ebcb15;
 }
 
 .header img {
@@ -36,7 +33,6 @@ body {
   max-width: 30rem;
   margin: 2rem auto;
   border-radius: 4px;
-  background: linear-gradient(180deg, #e6de0a, #e48f06);
 }
 
 .input-group {
@@ -75,8 +71,6 @@ select {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
-  background: linear-gradient(180deg, #2d1f58, #122379);
-  color: #ebe236;
   font-family: "Roboto Condensed", sans-serif;
   cursor: pointer;
 }
@@ -85,7 +79,6 @@ select {
   font-family: "Roboto Condensed", sans-serif;
   border: none;
   background: transparent;
-  color: #371d80;
   cursor: pointer;
 }
 
@@ -95,7 +88,6 @@ button:hover {
 
 .buttonAlt:hover {
   background: transparent;
-  color: #555d86;
 }
 
 .result {
@@ -109,11 +101,9 @@ button:hover {
 
 .result thead {
   font-size: 0.7rem;
-  color: #83e6c0;
 }
 
 .result tbody {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
-  color: #c2e9e0;
 }

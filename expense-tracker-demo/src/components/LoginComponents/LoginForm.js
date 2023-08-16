@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { firebaseAuth } from "../firebase";
+import { firebaseAuth } from "../../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import "./LoginPopup.css"; // Apply your styles here
+import "./LoginForm.css"; // Apply your styles here
 
-export const LoginPopup = ({ onClose }) => {
+export const LoginForm = ({}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +15,7 @@ export const LoginPopup = ({ onClose }) => {
 
     await signInWithEmailAndPassword(firebaseAuth, email, password)
       .then((userCredential) => {
-        onClose();
+        //jump to the home page
       })
       .catch((error) => {
         console.log(error.message);
@@ -27,7 +27,7 @@ export const LoginPopup = ({ onClose }) => {
 
     createUserWithEmailAndPassword(firebaseAuth, email, password)
       .then((userCredential) => {
-        onClose();
+        //jump to the home page
       })
       .catch((error) => {
         console.log(error.message);
@@ -35,27 +35,24 @@ export const LoginPopup = ({ onClose }) => {
   };
 
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <h2>Login</h2>
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Login</button>
-        </form>
+    <div className="login-form">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
         <button onClick={handleRegister}>Register</button>
-        <button onClick={onClose}>Close</button>
-      </div>
+      </form>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { firebaseDb } from "../firebase";
+import { firebaseDb } from "../../firebase";
 
 export const InputForm = (props) => {
   const initalFormData = {

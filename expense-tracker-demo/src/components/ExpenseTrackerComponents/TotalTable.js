@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
-import { firebaseDb } from "../firebase";
+import { firebaseDb } from "../../firebase";
 
 //display data from firebase database
 

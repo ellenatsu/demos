@@ -6,7 +6,7 @@ import {
   where,
   limit,
 } from "firebase/firestore";
-import { firebaseDb } from "../firebase";
+import { firebaseDb } from "../../firebase";
 
 //display data from firebase database
 

@@ -1,16 +1,20 @@
 // App.js
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { MainPage } from "./pages/MainPage";
 import { ExpenseTrackerPage } from "./pages/ExpenseTrackerPage";
 import { BlogPage } from "./pages/BlogPage";
+import { LoginPage } from "./pages/LoginPage";
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/expense-tracker" component={<ExpenseTrackerPage />} />
-      <Route path="/blog" component={<BlogPage />} />
-      <Route path="/" component={<MainPage />} />
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/expense-tracker" element={<ExpenseTrackerPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </div>
   );
 };

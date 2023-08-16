@@ -1,50 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { TotalTable } from "../components/TotalTable";
-import { DetailTable } from "../components/DetailTable";
-import { InputForm } from "../components/InputForm";
-import { Header } from "../components/Header";
-import { LoginPopup } from "../components/LoginPopup";
+import React from "react";
+import { TotalTable } from "../components/ExpenseTrackerComponents/TotalTable";
+import { DetailTable } from "../components/ExpenseTrackerComponents/DetailTable";
+import { InputForm } from "../components/ExpenseTrackerComponents/InputForm";
 import { useMonthlyData } from "../hooks/index";
-import { firebaseApp, firebaseAuth, firebaseDb } from "../firebase";
+import { Navbar } from "../components/Common/Navbar";
 
 export const ExpenseTrackerPage = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  //log in status
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        setUser(null);
-        console.log("user not log in");
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const handleLogout = () => {
-    signOut(firebaseAuth)
-      .then(() => {
-        // Sign-out successful.
-        console.log("sign out.");
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  };
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
-
   const { monthData, updateMonthlyData } = useMonthlyData("202308");
 
   const submitHandler = (userInput) => {
@@ -78,17 +39,7 @@ export const ExpenseTrackerPage = () => {
 
   return (
     <div>
-      <Header />
-      {user ? (
-        <div>
-          <p>Current User: {user.email}</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <button onClick={handleOpenPopup}>Open Login</button>
-      )}
-      {isPopupOpen && <LoginPopup onClose={handleClosePopup} />}
-
+      <Navbar />
       <InputForm onSubmit={submitHandler} />
       <TotalTable />
       <DetailTable />
