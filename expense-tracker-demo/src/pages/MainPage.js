@@ -1,6 +1,6 @@
 // MainPage.js
 import React from "react";
-import { Navbar } from "../components/Common/Navbar";
+import { Header } from "../components/Header/Header";
 import { ImageGallery } from "../components/Common/ImageGallery";
 
 export const MainPage = () => {
@@ -11,7 +11,7 @@ export const MainPage = () => {
   ];
   return (
     <div className="main-page">
-      <Navbar />
+      <Header />
       <h2>Welcome to the sweet home</h2>
       <ImageGallery images={images} />
     </div>

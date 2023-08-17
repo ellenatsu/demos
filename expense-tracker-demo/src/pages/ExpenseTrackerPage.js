@@ -3,7 +3,7 @@ import { TotalTable } from "../components/ExpenseTrackerComponents/TotalTable";
 import { DetailTable } from "../components/ExpenseTrackerComponents/DetailTable";
 import { InputForm } from "../components/ExpenseTrackerComponents/InputForm";
 import { useMonthlyData } from "../hooks/index";
-import { Navbar } from "../components/Common/Navbar";
+import { Header } from "../components/Header/Header";
 
 export const ExpenseTrackerPage = () => {
   const { monthData, updateMonthlyData } = useMonthlyData("202308");
@@ -39,7 +39,7 @@ export const ExpenseTrackerPage = () => {
 
   return (
     <div>
-      <Navbar />
+      <Header />
       <InputForm onSubmit={submitHandler} />
       <TotalTable />
       <DetailTable />

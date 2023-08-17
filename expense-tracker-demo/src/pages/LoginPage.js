@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { LoginForm } from "../components/LoginComponents/LoginForm";
 import { firebaseAuth } from "../firebase";
-import { Navbar } from "../components/Common/Navbar";
+import { Header } from "../components/Header/Header";
 
 export const LoginPage = () => {
   //log in status
@@ -35,7 +35,7 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <Navbar />
+      <Header />
       {user ? (
         <div>
           <p>Current User: {user.email}</p>
