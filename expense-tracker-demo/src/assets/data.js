@@ -20,3 +20,24 @@ export const navItems = [
     url: "/login",
   },
 ];
+
+export const category = [
+  {
+    id: 1,
+    category: "Pets",
+    title: "Mochi",
+    cover: "../images/1.png",
+  },
+  {
+    id: 2,
+    category: "Receipt",
+    title: "Mochi",
+    cover: "../images/1.png",
+  },
+  {
+    id: 3,
+    category: "Memory",
+    title: "Mochi",
+    cover: "../images/1.png",
+  },
+];
