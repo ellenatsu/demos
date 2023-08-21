@@ -26,18 +26,18 @@ export const category = [
     id: 1,
     category: "Pets",
     title: "Mochi",
-    cover: "../images/1.png",
+    cover: "https://i.ibb.co/Yd4S0z7/2.jpg",
   },
   {
     id: 2,
-    category: "Receipt",
+    category: "Recipe",
     title: "Mochi",
-    cover: "../images/1.png",
+    cover: "https://i.ibb.co/K7jB8Gf/recipe1.jpg",
   },
   {
     id: 3,
     category: "Memory",
     title: "Mochi",
-    cover: "../images/1.png",
+    cover: "https://i.ibb.co/7CXjWXv/images.jpg",
   },
 ];

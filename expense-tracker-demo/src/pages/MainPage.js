@@ -13,7 +13,7 @@ export const MainPage = () => {
     <div className="main-page">
       <Header />
       <h2>Welcome to the sweet home</h2>
-      <ImageGallery images={images} />
+      {/* <ImageGallery images={images} /> */}
     </div>
   );
 };
