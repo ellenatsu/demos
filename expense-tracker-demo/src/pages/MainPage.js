@@ -14,6 +14,19 @@ export const MainPage = () => {
       <Header />
       <h2>Welcome to the sweet home</h2>
       {/* <ImageGallery images={images} /> */}
+
+      <br />
+      <h1>TBD:</h1>
+      <ul>
+        <li>
+          List editor, home page pictures + agenda editor, gallery upload
+          &editor
+        </li>
+        <li>users: admin, readonly, no access</li>
+        <li>
+          cool effects to display agenda + reminder + gallery in home page
+        </li>
+      </ul>
     </div>
   );
 };

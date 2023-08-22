@@ -68,8 +68,17 @@ form,
   background: #fff;
 }
 
-@media screen and (max-width: 768px) {
-  nav {
-    display: none;
-  }
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.link {
+  color: #000;
+}
+
+.container {
+  max-width: 95%;
+  margin: auto;
 }

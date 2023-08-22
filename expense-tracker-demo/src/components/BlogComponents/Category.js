@@ -11,7 +11,7 @@ import { GrFormPrevious } from "react-icons/gr";
 const SampleNextArrow = (props) => {
   const { onClick } = props;
   return (
-    <div className="control-btn" onClick={onclick}>
+    <div className="control-btn" onClick={onClick}>
       <button className="next">
         <MdNavigateNext className="icon"></MdNavigateNext>
       </button>
@@ -22,7 +22,7 @@ const SampleNextArrow = (props) => {
 const SamplePrevArrow = (props) => {
   const { onClick } = props;
   return (
-    <div className="control-btn" onClick={onclick}>
+    <div className="control-btn" onClick={onClick}>
       <button className="prev">
         <GrFormPrevious className="icon"></GrFormPrevious>
       </button>
@@ -37,7 +37,7 @@ export const Category = () => {
     slidesToShow: 2,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    nextArrow: <SamplePrevArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 800,
