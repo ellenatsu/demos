@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { LoginForm } from "../components/LoginComponents/LoginForm";
+import { LoginForm } from "../components/account/LoginForm";
 import { firebaseAuth } from "../firebase";
-import { Header } from "../components/Header/Header";
+import { Header } from "../components/header/Header";
 
 export const LoginPage = () => {
   //log in status

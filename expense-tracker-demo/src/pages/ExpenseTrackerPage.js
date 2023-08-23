@@ -1,9 +1,9 @@
 import React from "react";
-import { TotalTable } from "../components/ExpenseTrackerComponents/TotalTable";
-import { DetailTable } from "../components/ExpenseTrackerComponents/DetailTable";
-import { InputForm } from "../components/ExpenseTrackerComponents/InputForm";
+import { TotalTable } from "../components/expenseTracker/TotalTable";
+import { DetailTable } from "../components/expenseTracker/DetailTable";
+import { InputForm } from "../components/expenseTracker/InputForm";
 import { useMonthlyData } from "../hooks/index";
-import { Header } from "../components/Header/Header";
+import { Header } from "../components/header/Header";
 
 export const ExpenseTrackerPage = () => {
   const { monthData, updateMonthlyData } = useMonthlyData("202308");

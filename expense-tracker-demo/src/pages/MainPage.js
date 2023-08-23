@@ -1,7 +1,7 @@
 // MainPage.js
 import React from "react";
-import { Header } from "../components/Header/Header";
-import { ImageGallery } from "../components/Common/ImageGallery";
+import { Header } from "../components/header/Header";
+import { ImageGallery } from "../components/common/ImageGallery";
 
 export const MainPage = () => {
   const images = [

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Header } from "../Header/Header";
+import { Header } from "../header/Header";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { blog } from "../../assets/data";
@@ -30,13 +30,10 @@ export const Details = () => {
             </div>
             <div className="right">
               <div className="buttons">
-                <button>
+                <button className="button">
                   <BsPencilSquare />
                 </button>
-              </div>
-
-              <div className="buttons">
-                <button>
+                <button className="button">
                   <AiOutlineDelete />
                 </button>
               </div>

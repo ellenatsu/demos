@@ -1,9 +1,9 @@
 import React from "react";
-import { Header } from "../components/Header/Header";
-import { Category } from "../components/BlogComponents/Category";
-import { Card } from "../components/BlogComponents/Card";
+import { Header } from "../components/header/Header";
+import { Category } from "../components/blog/Category";
+import { Card } from "../components/blog/Card";
 import { Routes, Route } from "react-router-dom";
-import { Details } from "../components/BlogComponents/Details";
+import { Details } from "../components/blog/Details";
 
 export const BlogPage = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { RiImageAddLine } from "react-icons/ri";
-import { IoSettingsOutline } from "react-icons/io5";
+import "./Header.css";
 import { BiLogOut } from "react-icons/bi";
 
 export const User = () => {
@@ -36,16 +36,12 @@ export const User = () => {
               </Link>
               <Link to="/create">
                 <button className="box">
-                  <RiImageAddLine />
+                  <RiImageAddLine className="icon" />
                   <h4>Create Post</h4>
                 </button>
               </Link>
               <button className="box">
-                <IoSettingsOutline className="icon" />
-                <h4>My Account</h4>
-              </button>
-              <button className="box">
-                <BiLogOut />
+                <BiLogOut className="icon" />
                 <h4>Log Out</h4>
               </button>
             </div>

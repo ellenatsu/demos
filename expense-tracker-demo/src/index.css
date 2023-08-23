@@ -68,6 +68,7 @@ form,
   background: #fff;
 }
 
+
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -81,4 +82,16 @@ form,
 .container {
   max-width: 95%;
   margin: auto;
+}
+
+.button {
+  background: #000;
+  border: 1px solid #212121;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 400;
+  height: 48px;
+  left: 1px;
+  padding: 15px 28px;
 }
