@@ -34,7 +34,7 @@ export const User = () => {
                   </div>
                 </div>
               </Link>
-              <Link to="/create">
+              <Link to="/blog/create">
                 <button className="box">
                   <RiImageAddLine className="icon" />
                   <h4>Create Post</h4>
