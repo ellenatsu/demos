@@ -2,7 +2,7 @@ import React from "react";
 import { TotalTable } from "../components/expenseTracker/TotalTable";
 import { DetailTable } from "../components/expenseTracker/DetailTable";
 import { InputForm } from "../components/expenseTracker/InputForm";
-import { useMonthlyData } from "../hooks/index";
+import { useMonthlyData } from "../hooks/expense";
 import { Header } from "../components/header/Header";
 
 export const ExpenseTrackerPage = () => {

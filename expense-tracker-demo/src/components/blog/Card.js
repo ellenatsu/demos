@@ -3,26 +3,29 @@ import { AiOutlineTags, AiOutlineClockCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./blog.css";
 import { blog } from "../../assets/data";
+import { useFetchPosts } from "../../hooks/blog";
 
 export const Card = () => {
+  const { postData } = useFetchPosts();
+
   return (
     <>
       <section className="blog">
         <div className="container grid3">
-          {blog.map((item) => (
+          {postData.map((item) => (
             <div className="box boxItems" key={item.id}>
-              <div className="img">
+              {/* <div className="img">
                 <img src={item.cover} alt="" />
-              </div>
+              </div> */}
               <div className="details">
                 <div className="tag">
                   <AiOutlineTags className="icon" />
-                  <a href="/">#{item.category}</a>
+                  <a href="/">#{item.tags}</a>
                 </div>
                 <Link to={`/blog/details/${item.id}`} className="link">
                   <h3>{item.title}</h3>
                 </Link>
-                <p>{item.desc.slice(0, 180)}...</p>
+                <p>{item.content.slice(0, 180)}...</p>
                 <div className="date">
                   <AiOutlineClockCircle className="icon" />
                   <label htmlFor="">{item.date}</label>
