@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { firebaseDb } from "../firebase";
-import { collection, onSnapshot, updateDoc } from "firebase/firestore";
+import { collection, onSnapshot, getDoc, doc } from "firebase/firestore";
 //hooks to listen to the firebase database change
 
 //get posts data
@@ -15,7 +15,7 @@ export const useFetchPosts = () => {
       (snapshot) => {
         const newData = [];
         snapshot.forEach((doc) => {
-          newData.push(doc.data());
+          newData.push({ id: doc.id, ...doc.data() });
         });
         setPostData(newData);
       }
@@ -27,4 +27,25 @@ export const useFetchPosts = () => {
   return { postData };
 };
 
-export const useFetchPost = () => {};
+export const useFetchPost = (postId) => {
+  const [post, setPost] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const docRef = doc(firebaseDb, "blog-posts", postId);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setPost(docSnap.data());
+        } else {
+          console.error("Error post id");
+        }
+      } catch (error) {
+        console.error("Error fetching post data", error);
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
+  return { post };
+};

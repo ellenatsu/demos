@@ -1,33 +1,25 @@
 import React, { useState } from "react";
 import { Header } from "../header/Header";
 import { useParams } from "react-router";
-import { useEffect } from "react";
-import { blog } from "../../assets/data";
 import { BsPencilSquare } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import "./details.css";
+import { useFetchPost } from "../../hooks/blog";
 
-export const Details = () => {
+export const PostDetail = () => {
   const { id } = useParams();
-  const [blogs, setBlogs] = useState(null);
 
-  useEffect(() => {
-    let blogs = blog.find((blogs) => blogs.id === parseInt(id));
-
-    if (blogs) {
-      setBlogs(blogs);
-    }
-  }, []);
+  const { post } = useFetchPost(id);
 
   return (
     <div>
       <Header />
-      {blogs ? (
+      {post ? (
         <section className="singlePost">
           <div className="container">
-            <div className="left">
+            {/* <div className="left">
               <img src={blogs.cover} alt="" />
-            </div>
+            </div> */}
             <div className="right">
               <div className="buttons">
                 <button className="button">
@@ -37,8 +29,8 @@ export const Details = () => {
                   <AiOutlineDelete />
                 </button>
               </div>
-              <h1>{blogs.title}</h1>
-              <p>{blogs.desc}</p>
+              <h1>{post.title}</h1>
+              <p>{post.content}</p>
             </div>
           </div>
         </section>

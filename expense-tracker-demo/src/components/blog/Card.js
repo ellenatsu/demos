@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlineTags, AiOutlineClockCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./blog.css";
-import { blog } from "../../assets/data";
 import { useFetchPosts } from "../../hooks/blog";
 
 export const Card = () => {

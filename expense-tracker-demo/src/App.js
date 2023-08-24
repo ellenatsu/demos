@@ -5,7 +5,7 @@ import { MainPage } from "./pages/MainPage";
 import { ExpenseTrackerPage } from "./pages/ExpenseTrackerPage";
 import { BlogPage } from "./pages/BlogPage";
 import { LoginPage } from "./pages/LoginPage";
-import { Details } from "./components/blog/Details";
+import { PostDetail } from "./components/blog/PostDetail";
 import { AccountInfo } from "./components/account/AccountInfo";
 import { NewPost } from "./components/blog/NewPost";
 
@@ -18,7 +18,7 @@ export const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/account" element={<AccountInfo />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/details/:id" element={<Details />} />
+        <Route path="/blog/details/:id" element={<PostDetail />} />
         <Route path="/blog/create" element={<NewPost />} />
       </Routes>
     </div>
