@@ -49,6 +49,11 @@ export const NewPost = () => {
     title: "test title",
   };
   const [formData, setFormData] = useState(initalFormData);
+  const [editorContent, setEditorContent] = useState("");
+
+  const handleEditorChange = (content) => {
+    setEditorContent(content);
+  };
 
   // Event handler for input elementss
   const handleInputChange = (event) => {
@@ -61,8 +66,14 @@ export const NewPost = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    //put content into the form data
+    setFormData({
+      ...formData,
+      content: editorContent,
+    });
+    console.log(editorContent);
     //add to firestore collection
-    addToFirestore();
+    //addToFirestore();
     alert("submit successful!");
     //go to the blog page
   };
@@ -110,8 +121,7 @@ export const NewPost = () => {
               apiKey={TINY_KEY}
               onInit={(evt, editor) => (editorRef.current = editor)}
               init={init_settings}
-              name="content"
-              onChange={handleInputChange}
+              onEditorChange={handleEditorChange}
             />
             <button className="button" type="submit">
               Create Post
