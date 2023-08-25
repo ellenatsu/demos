@@ -30,7 +30,7 @@ export const PostDetail = () => {
                 </button>
               </div>
               <h1>{post.title}</h1>
-              <p>{post.content}</p>
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
           </div>
         </section>

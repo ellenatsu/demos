@@ -24,7 +24,8 @@ export const Card = () => {
                 <Link to={`/blog/details/${item.id}`} className="link">
                   <h3>{item.title}</h3>
                 </Link>
-                <p>{item.content.slice(0, 180)}...</p>
+                <p dangerouslySetInnerHTML={{ __html: item.content.slice(0,180) }}></p>
+                
                 <div className="date">
                   <AiOutlineClockCircle className="icon" />
                   <label htmlFor="">{item.date}</label>
