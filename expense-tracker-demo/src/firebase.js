@@ -28,6 +28,6 @@ const firebaseAuth = getAuth(firebaseApp);
 const firebaseDb = getFirestore(firebaseApp);
 
 // Initialize Cloud Storage and get a reference to the service
-const fiirebaseStorage = getStorage(firebaseApp);
+const firebaseStorage = getStorage(firebaseApp);
 
-export { firebaseApp, firebaseAuth, firebaseDb, fiirebaseStorage };
+export { firebaseApp, firebaseAuth, firebaseDb, firebaseStorage };

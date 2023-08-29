@@ -19,6 +19,11 @@ export const navItems = [
     text: "login",
     url: "/login",
   },
+  {
+    id: 5,
+    text: "gallery",
+    url: "/image-gallery",
+  },
 ];
 
 export const category = [
@@ -39,16 +44,5 @@ export const category = [
     category: "Memory",
     title: "Gallery & ",
     cover: "https://i.ibb.co/7CXjWXv/images.jpg",
-  },
-];
-
-export const blog = [
-  {
-    id: 1,
-    title: "Test POST with A YOUTUBE VIDEO",
-    content:
-      "Quisque at tellus nec magna viverra euismod. Maecenas lobortis, nisl et sodales blandit, neque mi ullamcorper eros, id efficitur ex velit in ante. Suspendisse elementum congue lacus quis gravida. Nunc eu hendrerit risus. Quisque blandit, orci non maximus vulputate, ligula ante ornare enim, ac interdum lorem leo varius mauris. Aliquam non sem vel orci malesuada sagittis. Vivamus id ullamcorper tellus. In hac habitasse platea dictumst. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras et sapien a arcu feugiat mattis. Suspendisse sed magna quis turpis rhoncus venenatis.",
-    tag: "Pets",
-    date: "Aug 05, 2023",
   },
 ];

@@ -4,27 +4,35 @@ import { Header } from "../components/header/Header";
 import { ImageGallery } from "../components/common/ImageGallery";
 
 export const MainPage = () => {
-  const images = [
-    "https://i.ibb.co/SX5DKdX/4.jpg",
-    "https://i.ibb.co/BtjRLF9/3.jpg",
-    "https://i.ibb.co/Yd4S0z7/2.jpg",
-  ];
   return (
     <div className="main-page">
       <Header />
       <h2>Welcome to the sweet home</h2>
-      {/* <ImageGallery images={images} /> */}
 
       <br />
-      <h1>TBD:</h1>
       <ul>
+        Blog page
+        <li>1. edit & delete blog</li>
+        <li>2. add pictures in blog, store in firestorage</li>
+      </ul>
+
+      <ul>
+        Gallery page
+        <li>1. upload images</li>
+        <li>2. create album?</li>
+      </ul>
+
+      <ul>
+        User
+        <li>1. user access, user name, store user in other database</li>
+      </ul>
+
+      <ul>
+        Home + Agenda
+        <li>1. Home makes like 3-4 slide vertical scroll</li>
         <li>
-          List editor, home page pictures + agenda editor, gallery upload
-          &editor
-        </li>
-        <li>users: admin, readonly, no access</li>
-        <li>
-          cool effects to display agenda + reminder + gallery in home page
+          2. make an agenda page.... temperally as home page... Construction
+          Progress...
         </li>
       </ul>
     </div>
