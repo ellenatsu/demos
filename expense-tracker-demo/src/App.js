@@ -9,6 +9,7 @@ import { PostDetail } from "./components/blog/PostDetail";
 import { AccountInfo } from "./components/account/AccountInfo";
 import { NewPost } from "./components/blog/NewPost";
 import { GalleryPage } from "./pages/GalleryPage";
+import { AnimateCatPage } from "./pages/AnimateCatPage";
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/details/:id" element={<PostDetail />} />
         <Route path="/blog/create" element={<NewPost />} />
+        <Route path="/animate" element={<AnimateCatPage />} />
       </Routes>
     </div>
   );

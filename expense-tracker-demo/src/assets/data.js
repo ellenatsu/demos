@@ -24,6 +24,11 @@ export const navItems = [
     text: "gallery",
     url: "/image-gallery",
   },
+  {
+    id: 6,
+    text: "Animation",
+    url: "/animate",
+  },
 ];
 
 export const category = [
