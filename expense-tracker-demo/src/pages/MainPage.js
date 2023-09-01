@@ -7,7 +7,8 @@ export const MainPage = () => {
   return (
     <div className="main-page">
       <Header />
-      <h2>Welcome to the sweet home</h2>
+      <img src="../assets/images/cat-2.jpeg" alt="cat"></img>
+      <h2> Under Construction ... </h2>
 
       <br />
       <ul>
