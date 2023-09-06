@@ -2,6 +2,7 @@
 import React from "react";
 import { Header } from "../components/header/Header";
 import { ImageGallery } from "../components/common/ImageGallery";
+import { Footer } from "../components/header/Footer";
 
 export const MainPage = () => {
   return (
@@ -36,6 +37,8 @@ export const MainPage = () => {
           Progress...
         </li>
       </ul>
+
+      <Footer />
     </div>
   );
 };
