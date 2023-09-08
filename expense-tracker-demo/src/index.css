@@ -68,7 +68,6 @@ form,
   background: #fff;
 }
 
-
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -95,3 +94,11 @@ form,
   left: 1px;
   padding: 15px 28px;
 }
+
+section {
+  height: 400px;
+  display: grid;
+  place-content: center;
+  background-color: antiquewhite;
+}
+

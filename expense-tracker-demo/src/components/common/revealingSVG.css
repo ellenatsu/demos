@@ -1,0 +1,23 @@
+.revealing-svg {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.revealing-svg.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.line-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+}
+
+.line-container svg {
+  display: inline-block;
+}
