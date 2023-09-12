@@ -1,35 +1,34 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./revealingSVG.css";
 
 export const RevealingSVG = () => {
-  const svgRef = useRef(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal");
-            observer.unobserve(entry.target);
-          } else {
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    const handleScroll = () => {
+      const path = document.querySelector("path");
+      const pathLength = path.getTotalLength();
+      path.style.strokeDasharray = pathLength + " " + pathLength;
+      path.style.strokeDashoffset = pathLength;
 
-    observer.observe(svgRef.current);
+      var scrollPercentage =
+        (document.documentElement.scrollTop + document.body.scrollTop) /
+        (document.documentElement.scrollHeight -
+          document.documentElement.clientHeight);
+
+      var drawLength = pathLength * scrollPercentage;
+
+      path.style.strokeDashoffset = pathLength - drawLength;
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <div className="line-container">
       <svg
-        ref={svgRef}
-        className="revealing-svg"
         viewBox="0 0 151 1438"
         fill="none"
         preserveAspectRatio="xMidYMax meet"

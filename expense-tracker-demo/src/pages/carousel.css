@@ -1,59 +1,20 @@
-.carousel {
+.slider-section {
   position: relative;
   border-radius: 10px;
-  height: 400px;
+  height: 800px;
   max-width: 650px;
   margin: auto;
-  overflow: hidden;
 }
 
-.carousel img {
-  width: 99%;
-  height: 99%;
-  border-radius: 8px;
-  border: #ff00008e solid 2px;
+.line-container {
+  position: fixed;
+  top: 600px;
+  left: 0px;
+  width: 400px;
+  height: 200px;
+  text-align: center;
 }
 
-.slide_direction {
-  display: flex;
-  justify-content: space-between;
-}
-
-.left,
-.right {
-  background-color: #fb666675;
-  color: #fff;
-  padding: 3px 0px 0px 5px;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 10px;
-  height: 25px;
-  width: 25px;
-}
-
-.left {
-  left: 0;
-}
-.right {
-  right: 0;
-}
-
-.indicator {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.dot {
-  background-color: #333;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-}
-
-.active {
-  background-color: #fa2020;
+.line-container svg {
+  display: inline-block;
 }
