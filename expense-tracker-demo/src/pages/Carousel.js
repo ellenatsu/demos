@@ -81,7 +81,11 @@ export const Carousel = ({ images }) => {
       </div>
 
       <div className="slider-section">
-        <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+        <Slider
+          asNavFor={nav2}
+          ref={(slider1) => setNav1(slider1)}
+          className="slider-1"
+        >
           {images.map((item) => (
             <img src={item} />
           ))}
@@ -93,6 +97,7 @@ export const Carousel = ({ images }) => {
           slidesToShow={3}
           swipeToSlide={true}
           focusOnSelect={true}
+          className="slider-2"
         >
           {images.map((item) => (
             <img src={item} />
