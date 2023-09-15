@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Header } from "../components/header/Header";
 import { Footer } from "../components/header/Footer";
 import { RevealingSVG } from "../components/common/RevealingSVG";
-
+import "../index.css";
 export const MainPage = () => {
   return (
     <div className="main-page">
