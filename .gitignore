@@ -1,4 +1,29 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#########for profolio demo####
+# Logs
+/profolio-demo/logs
+/profolio-demo/*.log
+/profolio-demo/npm-debug.log*
+/profolio-demo/yarn-debug.log*
+/profolio-demo/yarn-error.log*
+/profolio-demo/pnpm-debug.log*
+/profolio-demo/lerna-debug.log*
+
+/profolio-demo/node_modules
+/profolio-demo/dist
+/profolio-demo/dist-ssr
+/profolio-demo/*.local
+
+# Editor directories and files
+/profolio-demo/.vscode/*
+/profolio-demo/!.vscode/extensions.json
+/profolio-demo/.idea
+/profolio-demo/.DS_Store
+/profolio-demo/*.suo
+/profolio-demo/*.ntvs*
+/profolio-demo/*.njsproj
+/profolio-demo/*.sln
+/profolio-demo/*.sw?
 
 #########for react demo expense-tracker####
 # dependencies
