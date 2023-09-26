@@ -25,7 +25,7 @@ export function Avatar(props) {
   const { animations: idleAnimation } = useFBX("animations/Standing.fbx");
 
   typingAnimation[0].name = "typing";
-   fallingAnimation[0].name = "falling";
+  fallingAnimation[0].name = "falling";
   idleAnimation[0].name = "idle";
 
   const { actions } = useAnimations(
