@@ -8,7 +8,6 @@ import { Avatar } from "./Avatar";
 import { useGLTF } from "@react-three/drei";
 import { useControls } from "leva";
 import { Room } from "./Room";
-import { MyRoom } from "./MyRoom";
 
 export const Experience = () => {
   const { animation } = useControls({
@@ -20,9 +19,13 @@ export const Experience = () => {
   return (
     <>
       <OrbitControls />
-      <Sky />
+      <mesh>
+        <boxGeometry />
+        <meshNormalMaterial />
+      </mesh>
+      {/* <Sky />
       <Environment preset="sunset" />
-      <MyRoom />
+      <Room /> */}
       {/* <group position-y={-1}>
         <ContactShadows
           opacity={1}

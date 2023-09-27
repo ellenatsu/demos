@@ -10,7 +10,6 @@ function App() {
         <ScrollControls pages={4} damping={0.1}>
           <Experience />
           <Scroll html>
-            {/* DOM contents in here will scroll along */}
             <Interface />
           </Scroll>
         </ScrollControls>
