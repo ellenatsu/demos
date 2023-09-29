@@ -63,7 +63,7 @@ const AboutSection = () => {
       >
         I like making cool web Applications and explore new features!
         <br />
-        Right now, I'm learning 3D and blender
+        Right now, I'm learning 3D and Animation
       </motion.p>
       <motion.button
         className={`bg-indigo-600 text-white py-4 px-8 
@@ -90,17 +90,30 @@ const AboutSection = () => {
 const SkillSection = () => {
   return (
     <Section>
-      <div>
+      <motion.div whileInView={"visible"}>
         <h2 className="text-5xl font-bold">Skills</h2>
         <div className="mt-8 space-y-4">
           {skills.map((skill, index) => (
             <div className="w-64" key={index}>
               <h3 className="text-xl font-bold text-gray-800">{skill.title}</h3>
               <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
-                <div
+                <motion.div
                   className="h-full bg-indigo-500 rounded-full"
                   style={{ width: `${skill.level}%` }}
-                ></div>
+                  initial={{
+                    scaleX: 0,
+                    originX: 0,
+                  }}
+                  variants={{
+                    visible: {
+                      scaleX: 1,
+                      transition: {
+                        duration: 1,
+                        delay: 1 + index * 0.2,
+                      },
+                    },
+                  }}
+                ></motion.div>
               </div>
             </div>
           ))}
@@ -122,7 +135,7 @@ const SkillSection = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

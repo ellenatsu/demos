@@ -1,6 +1,6 @@
 export const skills = [
   {
-    title: "React / React Native",
+    title: "React / Nextjs",
     level: 80,
   },
   {
@@ -16,7 +16,7 @@ export const skills = [
     level: 70,
   },
   {
-    title: "3D Modeling / React Three Fiber",
+    title: "3D / React Three Fiber",
     level: 60,
   },
 ];
