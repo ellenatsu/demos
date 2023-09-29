@@ -1,20 +1,33 @@
 import React from "react";
 import { languages, skills } from "../assets/data";
+import { motion } from "framer-motion";
 
 const Section = (props) => {
   const { children } = props;
   return (
-    <section
+    <motion.section
       className={`h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col items-start justify-center`}
+      inital={{
+        opacity: 0,
+        y: 50,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 1,
+          delay: 0.6,
+        },
+      }}
     >
       {children}
-    </section>
+    </motion.section>
   );
 };
 
 export const Interface = () => {
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-screen">
       <AboutSection />
       <SkillSection />
       <Section>
@@ -33,16 +46,43 @@ const AboutSection = () => {
         <br />
         <span className="bg-white px-1 italic">Ellen Wang</span>
       </h1>
-      <p className="text-lg text-gray-600 mt-4">
+      <motion.p
+        className="text-lg text-gray-600 mt-4"
+        initial={{
+          opacity: 0,
+          y: 25,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1,
+          delay: 1.5,
+        }}
+      >
         I like making cool web Applications and explore new features!
         <br />
         Right now, I'm learning 3D and blender
-      </p>
-      <button
-        className={`bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16`}
+      </motion.p>
+      <motion.button
+        className={`bg-indigo-600 text-white py-4 px-8 
+      rounded-lg font-bold text-lg mt-16`}
+        initial={{
+          opacity: 0,
+          y: 25,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1,
+          delay: 2,
+        }}
       >
         Check my work
-      </button>
+      </motion.button>
     </Section>
   );
 };
@@ -88,10 +128,48 @@ const SkillSection = () => {
 };
 
 const ContactSection = () => {
+  const inputClassName = `block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3`;
+  const textareaClassName = `${inputClassName} w-full`;
+  const labelClassName = `font-medium text-gray-900 block mb-1 mt-8`;
   return (
     <Section>
       <h2 className="text-5xl font-bold">Contact me</h2>
-      <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full"></div>
+      <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
+        <form>
+          <label for="name" className={labelClassName}>
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className={inputClassName}
+          ></input>
+
+          <label for="email" className={labelClassName}>
+            Email
+          </label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            className={inputClassName}
+          ></input>
+
+          <label for="message" className={labelClassName}>
+            Message
+          </label>
+          <textarea
+            type="text"
+            name="message"
+            id="message"
+            className={textareaClassName}
+          ></textarea>
+          <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold mt-16">
+            Submit
+          </button>
+        </form>
+      </div>
     </Section>
   );
 };

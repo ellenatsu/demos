@@ -6,7 +6,7 @@ import { Interface } from "./components/Interface";
 function App() {
   return (
     <>
-      <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
+      <Canvas>
         <ScrollControls pages={4} damping={0.1}>
           <Experience />
           <Scroll html>

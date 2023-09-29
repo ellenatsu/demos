@@ -10,12 +10,12 @@ import { useControls } from "leva";
 import { Room } from "./Room";
 
 export const Experience = () => {
-  const { animation } = useControls({
-    animation: {
-      value: "typing",
-      options: ["typing", "falling", "idle"],
-    },
-  });
+  // const { animation } = useControls({
+  //   animation: {
+  //     value: "typing",
+  //     options: ["typing", "falling", "idle"],
+  //   },
+  // });
   return (
     <>
       <OrbitControls />
@@ -46,9 +46,9 @@ export const Experience = () => {
           <planeGeometry />
           <meshStandardMaterial color="white" />
         </mesh>
-      </group> */}
+      </group> 
 
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1} />*/}
     </>
   );
 };
