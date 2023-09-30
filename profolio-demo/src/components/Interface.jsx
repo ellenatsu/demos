@@ -58,7 +58,7 @@ const AboutSection = () => {
         }}
         transition={{
           duration: 1,
-          delay: 1.5,
+          delay: 1,
         }}
       >
         I like making cool web Applications and explore new features!
@@ -109,7 +109,7 @@ const SkillSection = () => {
                       scaleX: 1,
                       transition: {
                         duration: 1,
-                        delay: 1 + index * 0.2,
+                        delay: 0.5 + index * 0.2,
                       },
                     },
                   }}
@@ -149,7 +149,7 @@ const ContactSection = () => {
       <h2 className="text-5xl font-bold">Contact me</h2>
       <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
         <form>
-          <label for="name" className={labelClassName}>
+          <label htmlFor="name" className={labelClassName}>
             Name
           </label>
           <input
@@ -159,7 +159,7 @@ const ContactSection = () => {
             className={inputClassName}
           ></input>
 
-          <label for="email" className={labelClassName}>
+          <label htmlFor="email" className={labelClassName}>
             Email
           </label>
           <input
@@ -169,7 +169,7 @@ const ContactSection = () => {
             className={inputClassName}
           ></input>
 
-          <label for="message" className={labelClassName}>
+          <label htmlFor="message" className={labelClassName}>
             Message
           </label>
           <textarea

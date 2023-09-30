@@ -19,13 +19,11 @@ export const Experience = () => {
   return (
     <>
       {/* <OrbitControls /> */}
-      <mesh>
-        <boxGeometry />
-        <meshNormalMaterial />
-      </mesh>
-      {/* <Sky />
+      <Sky />
       <Environment preset="sunset" />
-      <Room /> */}
+      <group position={[1.5, 2, 3]} scale={[0.9, 0.9, 0.9]} rotation-y={-Math.PI / 4}>
+      <Room />
+      </group>
       {/* <group position-y={-1}>
         <ContactShadows
           opacity={1}
@@ -45,10 +43,9 @@ export const Experience = () => {
         <mesh scale={5} rotation-x={-Math.PI * 0.5}>
           <planeGeometry />
           <meshStandardMaterial color="white" />
-        </mesh>
-      </group> 
+        </mesh>*/}
 
-      <ambientLight intensity={1} />*/}
+      <ambientLight intensity={1} />
     </>
   );
 };

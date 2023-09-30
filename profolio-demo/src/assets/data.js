@@ -30,3 +30,22 @@ export const languages = [
     level: 95,
   },
 ];
+
+export const navItems = [
+  {
+    title: "About",
+    href: "/",
+  },
+  {
+    title: "Skills",
+    href: "/",
+  },
+  {
+    title: "Projects",
+    href: "/",
+  },
+  {
+    title: "Contact",
+    href: "/",
+  }
+]
