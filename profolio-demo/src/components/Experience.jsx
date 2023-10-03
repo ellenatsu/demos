@@ -37,7 +37,14 @@ export const Experience = (props) => {
         rotation-y={-Math.PI / 4}
         animate={{ y: section === 0 ? 0 : -1 }}
       >
-        <Room />
+        <Room section={section} />
+        <group
+          name="CharacterSpot"
+          position={[0.07, 0.16, -0.57]}
+          rotation={[-Math.PI, 0.42, -Math.PI]}
+        >
+          <Avatar animation={section === 0 ? "typing" : "idle"} />
+        </group>
       </motion.group>
 
       <motion.group
@@ -48,9 +55,7 @@ export const Experience = (props) => {
         }}
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
-        <group scale={[2, 2, 2]} position-y={-1.5}>
-          <Avatar animation={section === 0 ? "falling" : "idle"} />
-        </group>
+        <group scale={[2, 2, 2]} position-y={-1.5}></group>
       </motion.group>
     </>
   );
