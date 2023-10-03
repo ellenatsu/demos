@@ -10,7 +10,7 @@ import { Vector3 } from "three";
 
 export function Avatar(props) {
   //get animation
-  const animation = props.animation;
+  const { animation } = props;
   //control lane
   const { headFollow, cursorFollow, wireFrame } = useControls({
     headFollow: false,

@@ -2,11 +2,12 @@ import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { ScrollControls, Scroll } from "@react-three/drei";
 import { useState } from "react";
+import { MotionConfig } from "framer-motion";
 
 import { Interface } from "./components/Interface";
 import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
-import { MotionConfig } from "framer-motion";
+import { framerMotionConfig } from "./config";
 
 function App() {
   //page is 4 but section is from 0 - 1 changing.
@@ -15,32 +16,24 @@ function App() {
 
   return (
     <>
-      <MotionConfig
-        transition={{
-          type: "spring",
-          mass: 5,
-          stiffness: 500,
-          damping: 50,
-          restDelta: 0.0001
-        }}>
+      <MotionConfig transition={{ ...framerMotionConfig }}>
         <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
-        <ScrollControls pages={4} damping={0.1}>
-          <ScrollManager section={section} onSectionChange={setSection} />
-          <Experience section={section}/>
-          <Scroll html>
-            <Interface />
-          </Scroll>
-        </ScrollControls>
+          <ScrollControls pages={4} damping={0.1}>
+            <ScrollManager section={section} onSectionChange={setSection} />
+            <Scroll>
+              <Experience section={section} menuOpened={menuOpened} />
+            </Scroll>
+            <Scroll html>
+              <Interface />
+            </Scroll>
+          </ScrollControls>
         </Canvas>
         <Menu
           onSectionChange={setSection}
-        menuOpened={menuOpened}
+          menuOpened={menuOpened}
           setMenuOpened={setMenuOpened}
         />
       </MotionConfig>
-    
-    
-      
     </>
   );
 }
