@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Interface } from "./components/Interface";
 import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
+import { MotionConfig } from "framer-motion";
 
 function App() {
   //page is 4 but section is from 0 - 1 changing.
@@ -14,20 +15,32 @@ function App() {
 
   return (
     <>
-      <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
+      <MotionConfig
+        transition={{
+          type: "spring",
+          mass: 5,
+          stiffness: 500,
+          damping: 50,
+          restDelta: 0.0001
+        }}>
+        <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
         <ScrollControls pages={4} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection} />
-          <Experience />
+          <Experience section={section}/>
           <Scroll html>
             <Interface />
           </Scroll>
         </ScrollControls>
-      </Canvas>
-      <Menu
-        onSectionChange={setSection}
+        </Canvas>
+        <Menu
+          onSectionChange={setSection}
         menuOpened={menuOpened}
-        setMenuOpened={setMenuOpened}
-      />
+          setMenuOpened={setMenuOpened}
+        />
+      </MotionConfig>
+    
+    
+      
     </>
   );
 }

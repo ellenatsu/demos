@@ -4,12 +4,16 @@ import {
   OrbitControls,
   Sky,
 } from "@react-three/drei";
-import { Avatar } from "./Avatar";
+
 import { useGLTF } from "@react-three/drei";
 import { useControls } from "leva";
+import {motion} from "framer-motion-3d";
+import { Avatar } from "./Avatar";
 import { Room } from "./Room";
 
-export const Experience = () => {
+export const Experience = (props) => {
+
+  const {section} = props;
   // const { animation } = useControls({
   //   animation: {
   //     value: "typing",
@@ -18,12 +22,14 @@ export const Experience = () => {
   // });
   return (
     <>
-      {/* <OrbitControls /> */}
-      <Sky />
-      <Environment preset="sunset" />
-      <group position={[1.5, 2, 3]} scale={[0.9, 0.9, 0.9]} rotation-y={-Math.PI / 4}>
-      <Room />
-      </group>
+      
+      <motion.group 
+			  position={[1.5, 2, 3]} 
+			  scale={[0.9, 0.9, 0.9]} 
+			  rotation-y={-Math.PI / 4} 
+			  animate={{y: section === 0 ? 0 : -1}}>
+          <Room />
+      </motion.group>
       {/* <group position-y={-1}>
         <ContactShadows
           opacity={1}
