@@ -29,10 +29,14 @@ export const Interface = () => {
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection />
-      <SkillSection />
       <Section>
-        <h1>Projects</h1>
+        <h1>Projects & Demos</h1>
+        <h3>
+          1. Full stack dribble-style website 2.Home Website 3. Spline 3d
+          interactive demo 4. Android xxx demo
+        </h3>
       </Section>
+      <SkillSection />
       <ContactSection />
     </div>
   );
@@ -147,6 +151,7 @@ const ContactSection = () => {
   return (
     <Section>
       <h2 className="text-5xl font-bold">Contact me</h2>
+      <h2 className="text-5xl font-bold">Download Resume/CV</h2>
       <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
         <form>
           <label htmlFor="name" className={labelClassName}>
