@@ -24,7 +24,7 @@ export const Experience = (props) => {
   //change camera when menu open/close
   useEffect(() => {
     animate(cameraPositionX, menuOpened ? -5 : 0, { ...framerMotionConfig });
-    animate(cameraLookAtX, menuOpened ? 5 : 0);
+    animate(cameraLookAtX, menuOpened ? 5 : 0, { ...framerMotionConfig });
   }, [menuOpened]);
 
   const characterContainerAboutRef = useRef();
@@ -50,16 +50,12 @@ export const Experience = (props) => {
     }
     state.camera.position.x = cameraPositionX.get();
     state.camera.lookAt(cameraLookAtX.get(), 0, 0);
-
-    //get avatar position
-    // const avaPosition = new THREE.Vector3();
-    // characterContainerAboutRef.current.getWorldPosition(avaPosition);
   });
 
   return (
     <>
       <motion.group
-        position={[1.9072935059634513, 0.14400000000000002, 2.681801948466054]}
+        position={[2.0072935059634513, 0.16400000000000002, 2.681801948466054]}
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
         animate={"" + section}
         transition={{
@@ -67,8 +63,8 @@ export const Experience = (props) => {
         }}
         variants={{
           0: {
-            scaleX: 0.9,
-            scaleY: 0.9,
+            scaleX: 1,
+            scaleY: 1,
             scaleZ: 0.9,
           },
           1: {

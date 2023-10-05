@@ -33,7 +33,7 @@ export const Interface = () => {
         <h1>Projects & Demos</h1>
         <h3>
           1. Full stack dribble-style website 2.Home Website 3. Spline 3d
-          interactive demo 4. Android xxx demo
+          interactive demo + this 3d aboutme demo 4. Android xxx demo
         </h3>
       </Section>
       <SkillSection />
