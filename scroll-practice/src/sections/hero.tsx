@@ -1,19 +1,28 @@
 import { GithubIcon } from "@/icons/github";
 import { useEffect, useRef } from "react";
-import {useScroll} from "framer-motion";
+import {useScroll, useTransform, motion} from "framer-motion";
 
 export const Hero = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-      target: targetRef
+    target: targetRef,
+    offset: ["end end", "end start"],
   });
 
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const position = useTransform(scrollYProgress,(pos) => {
+    return pos === 1 ? "relative" : "fixed";
+  })
+
   return (
-    <section
-        ref={(targetRef)}
+    <motion.section
+      style={{ opacity }}
+      ref={(targetRef)}
       className="relative mb-[8rem] h-screen py-16 text-white before:pointer-events-none before:fixed before:inset-0 before:z-0 before:bg-[radial-gradient(circle_farthest-side_at_var(--x,_100px)_var(--y,_100px),_var(--color-secondary)_0%,_transparent_100%)] before:opacity-40"
     >
-      <div
+      <motion.div
+        style={{ scale, x: '-50%', position }}
         className="fixed left-1/2 z-10 flex flex-col items-center"
       >
         <p className="mb-2 text-xl font-light">
@@ -44,7 +53,7 @@ export const Hero = () => {
           <GithubIcon className="mr-2 inline h-5 w-5" />
           Import GitHub project
         </a>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
