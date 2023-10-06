@@ -1,7 +1,7 @@
 import { Collaboration } from "@/sections/collaboration";
 // import { Features } from "@/sections/features";
 // import { MoreFeatures } from "@/sections/more-features";
-// import { NoLockin } from "@/sections/no-lockin";
+import { NoLockin } from "@/sections/no-lockin";
 import { SamePage } from "@/sections/same-page";
 import { StreamlinedExperience } from "@/sections/streamlined-experience";
 
@@ -26,8 +26,8 @@ export default function Home() {
           <SamePage />
           <StreamlinedExperience />
           {/*<Features />
-          <MoreFeatures />
-          <NoLockin /> */}
+          <MoreFeatures />*/}
+          <NoLockin />
         </div>
       </main>
     </>
