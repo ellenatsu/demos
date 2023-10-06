@@ -1,6 +1,6 @@
 import { GithubIcon } from "@/icons/github";
 import { useEffect, useRef } from "react";
-import {useScroll, useTransform, motion} from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 export const Hero = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -11,18 +11,18 @@ export const Hero = () => {
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const position = useTransform(scrollYProgress,(pos) => {
+  const position = useTransform(scrollYProgress, (pos) => {
     return pos === 1 ? "relative" : "fixed";
-  })
+  });
 
   return (
     <motion.section
       style={{ opacity }}
-      ref={(targetRef)}
+      ref={targetRef}
       className="relative mb-[8rem] h-screen py-16 text-white before:pointer-events-none before:fixed before:inset-0 before:z-0 before:bg-[radial-gradient(circle_farthest-side_at_var(--x,_100px)_var(--y,_100px),_var(--color-secondary)_0%,_transparent_100%)] before:opacity-40"
     >
       <motion.div
-        style={{ scale, x: '-50%', position }}
+        style={{ scale, x: "-50%", position }}
         className="fixed left-1/2 z-10 flex flex-col items-center"
       >
         <p className="mb-2 text-xl font-light">
@@ -40,7 +40,6 @@ export const Hero = () => {
           , rebuilt by Frontend.FYI
           <br />
           learned / modified by Ellen
-        
         </p>
 
         <h1 className="mb-12 text-center font-heading text-3xl leading-[1]">

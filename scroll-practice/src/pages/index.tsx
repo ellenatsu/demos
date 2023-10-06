@@ -2,8 +2,8 @@ import { Collaboration } from "@/sections/collaboration";
 // import { Features } from "@/sections/features";
 // import { MoreFeatures } from "@/sections/more-features";
 // import { NoLockin } from "@/sections/no-lockin";
-// import { SamePage } from "@/sections/same-page";
-// import { StreamlinedExperience } from "@/sections/streamlined-experience";
+import { SamePage } from "@/sections/same-page";
+import { StreamlinedExperience } from "@/sections/streamlined-experience";
 
 import { Hero } from "@/sections/hero";
 import Head from "next/head";
@@ -22,10 +22,10 @@ export default function Home() {
       <main>
         <Hero />
         <div className="relative z-10 w-full overflow-x-clip">
-           <Collaboration />
-          {/*<SamePage />
+          <Collaboration />
+          <SamePage />
           <StreamlinedExperience />
-          <Features />
+          {/*<Features />
           <MoreFeatures />
           <NoLockin /> */}
         </div>
