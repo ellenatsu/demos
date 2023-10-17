@@ -1,6 +1,7 @@
 import React from "react";
 import { languages, skills } from "../assets/data";
 import { motion } from "framer-motion";
+import { Projects } from "./Projects";
 
 const Section = (props) => {
   const { children } = props;
@@ -29,14 +30,8 @@ export const Interface = () => {
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection />
-      <Section>
-        <h1>Projects & Demos</h1>
-        <h3>
-          1. Full stack dribble-style website 2.Home Website 3. Spline 3d
-          interactive demo + this 3d aboutme demo 4. Android xxx demo
-        </h3>
-      </Section>
       <SkillSection />
+      <ProjectsSection />
       <ContactSection />
     </div>
   );
@@ -140,6 +135,16 @@ const SkillSection = () => {
           </div>
         </div>
       </motion.div>
+    </Section>
+  );
+};
+
+const ProjectsSection = () => {
+  return (
+    <Section>
+      <div className="flex w-full h-full gap-8 items-center justify-center">
+        <Projects />
+      </div>
     </Section>
   );
 };
