@@ -9,6 +9,7 @@ import { useScroll } from "@react-three/drei";
 import { framerMotionConfig } from "../config";
 import { Avatar } from "./Avatar";
 import { Room } from "./Room";
+import { Projects } from "./Projects";
 
 export const Experience = (props) => {
   const { menuOpened } = props;
@@ -121,6 +122,7 @@ export const Experience = (props) => {
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
         <group scale={[2, 2, 2]} position-y={-1.5}></group>
       </motion.group>
+      <Projects />
     </>
   );
 };
